@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.Flow
 interface TodoDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insert(todo: Todo): Int
+    fun insert(todo: Todo)
 
     @Query("SELECT * FROM todo")
     fun getAll(): Flow<Todo>
@@ -24,7 +24,7 @@ interface TodoDao {
     fun count(): Int
 
     @Update(onConflict = OnConflictStrategy.IGNORE)
-    fun update(): Int
+    fun update(todo: Todo): Int
 
     @Delete
     fun delete(todo: Todo): Int

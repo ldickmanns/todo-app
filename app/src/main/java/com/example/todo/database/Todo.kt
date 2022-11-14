@@ -7,9 +7,6 @@ import java.util.Date
 
 @Entity
 data class Todo(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int,
-
     @ColumnInfo(name = "todo_text")
     val todoText: String,
 
@@ -18,6 +15,9 @@ data class Todo(
     @ColumnInfo(name = "is_done")
     val isDone: Boolean = false,
 ) {
+    @PrimaryKey(autoGenerate = true)
+    var id: Int = 0
+
     @ColumnInfo(name = "last_edited")
-    val lastEdited: Date = Date()
+    var lastEdited: Date = Date()
 }
