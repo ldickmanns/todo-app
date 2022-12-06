@@ -15,7 +15,7 @@ interface TodoDao {
     fun insert(todo: Todo)
 
     @Query("SELECT * FROM todo")
-    fun getAll(): Flow<Todo>
+    fun getAll(): Flow<List<Todo>>
 
     @Query("SELECT * FROM todo WHERE id = :id")
     fun getById(id: Int): Todo

@@ -14,10 +14,10 @@ data class Todo(
 
     @ColumnInfo(name = "is_done")
     val isDone: Boolean = false,
+
+    @ColumnInfo(name = "last_edited")
+    val createdAt: Date = Date()
 ) {
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0
-
-    @ColumnInfo(name = "last_edited")
-    var lastEdited: Date = Date()
 }
