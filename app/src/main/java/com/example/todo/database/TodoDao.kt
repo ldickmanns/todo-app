@@ -14,18 +14,18 @@ interface TodoDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(todo: Todo)
 
-    @Query("SELECT * FROM todo")
-    fun getAll(): Flow<Todo>
-
-    @Query("SELECT * FROM todo WHERE id = :id")
-    fun getById(id: Int): Todo
-
-    @Query("SELECT COUNT(*) FROM todo")
-    fun count(): Int
-
     @Update(onConflict = OnConflictStrategy.IGNORE)
     fun update(todo: Todo): Int
 
     @Delete
     fun delete(todo: Todo): Int
+
+    @Query("SELECT * FROM todo WHERE id = :id")
+    fun getById(id: Int): Todo
+
+    @Query("SELECT * FROM todo")
+    fun getAll(): Flow<List<Todo>>
+
+    @Query("SELECT COUNT(*) FROM todo")
+    fun count(): Int
 }

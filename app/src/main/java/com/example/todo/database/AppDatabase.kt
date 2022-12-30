@@ -12,10 +12,12 @@ import androidx.room.TypeConverters
 )
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
+
     abstract fun todoDao(): TodoDao
 
     companion object {
         // Singleton pattern due to expensive instantiation
+        @Volatile
         private var instance: AppDatabase? = null
 
         fun getInstance(context: Context): AppDatabase = instance ?: synchronized(this) {
